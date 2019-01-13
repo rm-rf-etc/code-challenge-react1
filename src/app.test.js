@@ -5,7 +5,7 @@ import logic from './logic'
 import {
     FIRST_FETCH,
     LOAD_SUCCESS,
-    CHANGE_SUBREDDIT
+    changeSubreddit,
 } from './actions'
 import initialState from './constants/initial-state'
 import endpoints from './endpoints'
@@ -51,15 +51,11 @@ describe('data fetching', () => {
 describe('reducers', () => {
     it('changes to new subreddit', () => {
 
-        const initialState = {
-            subreddit: '',
-            data: [],
-        }
-        const action = {
-            type: CHANGE_SUBREDDIT,
-            subreddit: 'sales',
-        }
+        const action = changeSubreddit('sales')
         const newState = rootReducer(initialState, action)
+
+        expect(action.type).toBe('CHANGE_SUBREDDIT')
+        expect(action.subreddit).toBe('sales')
 
         expect(Array.isArray(newState.data)).toBe(true)
         expect(newState.data.length).toBe(0)

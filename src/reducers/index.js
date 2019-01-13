@@ -1,5 +1,6 @@
-import { FIRST_FETCH } from 'actions/'
+import { FIRST_FETCH, CHANGE_SUBREDDIT } from 'actions/'
 import initialState from 'constants/initial-state'
+import update from 'immutability-helper'
 
 
 export default (state = initialState, action = {}) => {
@@ -9,6 +10,11 @@ export default (state = initialState, action = {}) => {
 
         [FIRST_FETCH]: () => {
             return state
+        },
+        [CHANGE_SUBREDDIT]: () => {
+            return update(state, {
+                subreddit: { $set: action.subreddit },
+            })
         },
 
     })[action.type]
