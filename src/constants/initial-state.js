@@ -1,4 +1,5 @@
 
 export default {
-    subreddit: 'sales',
+    subreddit: '',
+    data: [],
 }

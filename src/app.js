@@ -40,11 +40,10 @@ const App = () => (
 			</p>
 			<a
 				className="app-root-link"
-				href="https://reactjs.org"
+				href="https://robertchristian.me"
 				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Learn React
+				rel="noopener noreferrer">
+				Made by Robert Christian
 			</a>
 		</header>
 	</div>

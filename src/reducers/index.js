@@ -1,4 +1,4 @@
-import { FIRST_FETCH } from 'actions'
+import { FIRST_FETCH } from 'actions/'
 import initialState from 'constants/initial-state'
 
 
