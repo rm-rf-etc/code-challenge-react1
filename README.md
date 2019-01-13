@@ -1,5 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# My Notes
+
+Endpoints:
+- https://www.reddit.com/r/sales/top.json
+- paginate: https://www.reddit.com/r/sales/top.json?limit=2&after=t3_aeltc6
+
+
+# Notes for Reviewer(s)
+- Would like to enforce coverage requirements to support team-wide TDD.
+- `npm test-cover` runs tests with coverage. Best to keep `npm test` because `console.log` is squelched when using
+coverage, and coverage also runs slower than standard tests.
+- `"babel": {` section of package.json is needed for styled-jsx to play nice with jest.
+- Import path aliases are found in `config-overrides.js`, these are webpack options we set for CRA using `customize-cra`
+
+## Additions Over Default CRA
+- react-redux
+- redux-logic
+- axios
+
+
 ## Available Scripts
 
 In the project directory, you can run:
