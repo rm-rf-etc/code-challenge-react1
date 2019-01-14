@@ -1,8 +1,8 @@
 
 /* Do not use action types in tests */
 /* Use action creators instead */
-export const FIRST_FETCH = 'FIRST_FETCH'
-export const CANCEL_FIRST_FETCH = 'CANCEL_FIRST_FETCH'
+export const FETCH_ATTEMPT = 'FETCH_ATTEMPT'
+export const CANCEL_FETCH = 'CANCEL_FETCH'
 export const LOAD_SUCCESS = 'LOAD_SUCCESS'
 export const LOAD_FAILURE = 'LOAD_FAILURE'
 export const CHANGE_SUBREDDIT = 'CHANGE_SUBREDDIT'
@@ -10,11 +10,11 @@ export const CHANGE_SUBREDDIT = 'CHANGE_SUBREDDIT'
 /* Use action creators instead */
 
 
-export const firstFetch = () => ({
-    type: FIRST_FETCH,
+export const fetchAttempt = () => ({
+    type: FETCH_ATTEMPT,
 })
-export const cancelFirstFetch = () => ({
-    type: CANCEL_FIRST_FETCH,
+export const cancelFetch = () => ({
+    type: CANCEL_FETCH,
 })
 export const loadSuccess = (data) => ({
     type: LOAD_SUCCESS,

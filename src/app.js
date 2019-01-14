@@ -1,51 +1,37 @@
 import React from 'react'
-import logo from './logo.svg'
+import Header from '@components/Header'
+import Home from '@components/Home'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+
+const Thread = (props) => (
+	<div>
+		<h1>Thread</h1>
+		<pre>{JSON.stringify(props, null, '\t')}</pre>
+	</div>
+)
+const Notfound = () => (
+	<div>
+		<h1>Page Not Found</h1>
+	</div>
+)
 
 const App = () => (
 	<div className="app-root">
 		<style jsx>{`
 			.app-root {
 				text-align: center;
-			}
-			.app-root-logo {
-				animation: app-root-logo-spin infinite 20s linear;
-				height: 40vmin;
-			}
-			.app-root-header {
 				background-color: #282c34;
-				min-height: 100vh;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				font-size: calc(10px + 2vmin);
-				color: white;
-			}
-			.app-root-link {
-				color: #61dafb;
-			}
-			@keyframes app-root-logo-spin {
-				from {
-					transform: rotate(0deg);
-				}
-				to {
-					transform: rotate(360deg);
-				}
 			}`}
 		</style>
-		<header className="app-root-header">
-			<img src={logo} className="app-root-logo" alt="logo" />
-			<p>
-				Edit <code>src/app.js</code> and save to reload.
-			</p>
-			<a
-				className="app-root-link"
-				href="https://robertchristian.me"
-				target="_blank"
-				rel="noopener noreferrer">
-				Made by Robert Christian
-			</a>
-		</header>
+		<Header />
+		<BrowserRouter>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/thread/:id" component={Thread} />
+				<Route component={Notfound} />
+			</Switch>
+		</BrowserRouter>
 	</div>
 )
 

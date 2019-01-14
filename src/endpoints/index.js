@@ -1,5 +1,6 @@
 
-const endpoints = {
-    root: 'https://www.reddit.com/r/reactjs.json?limit=24'
+export default (subreddit = 'reactjs', after = null) => {
+
+    after = !!after ? `&after=${after}` : ''
+    return `https://www.reddit.com/r/${subreddit}.json?limit=24${after}`
 }
-export default endpoints

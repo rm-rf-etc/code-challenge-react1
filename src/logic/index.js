@@ -1,20 +1,23 @@
 import { createLogic } from 'redux-logic'
-import endpoints from '@endpoints/'
+import endpoint from '@endpoints/'
 import {
-    FIRST_FETCH,
-    CANCEL_FIRST_FETCH,
+    FETCH_ATTEMPT,
+    CANCEL_FETCH,
     loadSuccess,
     loadFailure,
 } from '@actions/'
 import { dataPreprocess } from '@helpers/'
 
 export default createLogic({
-    type: FIRST_FETCH,
-    cancelType: CANCEL_FIRST_FETCH,
+    type: FETCH_ATTEMPT,
+    cancelType: CANCEL_FETCH,
     latest: true,
     process: ({ httpClient, getState, action }, dispatch, done) => {
+
+        const { subreddit, after } = getState()
+
         return httpClient
-        .get(endpoints.root)
+        .get(endpoint(subreddit, after))
         .then((resp) => {
             const data = dataPreprocess(resp)
             dispatch(loadSuccess(data))

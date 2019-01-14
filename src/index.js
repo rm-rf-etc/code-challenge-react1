@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './configureStore'
-import { firstFetch } from '@actions/'
+import { fetchAttempt } from '@actions/'
 
 import './index.css'
 import App from './app'
 import * as serviceWorker from './serviceWorker'
 
 const store = configureStore()
-store.dispatch(firstFetch())
+store.dispatch(fetchAttempt())
 
 ReactDOM.render(
     <Provider store={store}>

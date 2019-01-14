@@ -20,6 +20,7 @@ module.exports = {
         newConfig.resolve.alias = {
             ...newConfig.resolve.alias,
             "@constants": absPath('./src/constants'),
+            "@components": absPath('./src/components'),
             "@endpoints": absPath('./src/endpoints'),
             "@logic": absPath('./src/logic'),
             "@actions": absPath('./src/actions'),
