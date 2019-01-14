@@ -51,17 +51,18 @@ describe('data fetching', () => {
         expect(_done.mock.calls.length).toBe(1)
     })
 })
-describe('reducers', () => {
+describe.skip('actions', () => {
+    it('', () => {
+    })
+})
+describe('root reducer', () => {
     it('changes to new subreddit', () => {
 
         const action = changeSubreddit('sales')
-        const newState = rootReducer(initialState, action)
-
         expect(action.type).toBe('CHANGE_SUBREDDIT')
         expect(action.subreddit).toBe('sales')
 
-        expect(Array.isArray(newState.data)).toBe(true)
-        expect(newState.data.length).toBe(0)
+        const newState = rootReducer(initialState, action)
         expect(newState.subreddit).toBe('sales')
     })
     it('preprocesses payload data', () => {
@@ -78,5 +79,9 @@ describe('reducers', () => {
         const newState = rootReducer(initialState, action)
 
         expect(newState.data.length).toBe(25)
+    })
+})
+describe.skip('logic', () => {
+    it('', () => {
     })
 })

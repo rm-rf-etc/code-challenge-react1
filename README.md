@@ -14,6 +14,7 @@ coverage, and coverage also runs slower than standard tests.
 - `"babel": {` section of package.json is needed for styled-jsx to play nice with jest.
 - Import path aliases are found in `config-overrides.js`, these are webpack options we set for CRA using `customize-cra`
 - All work was done on master, no attempt was made to organize into branches as would normally be done in a real project
+- All tests were done in one file because the project is minimal and short-term
 
 
 ## Additions Over Default CRA

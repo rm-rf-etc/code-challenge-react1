@@ -1,5 +1,5 @@
 
 export default {
-    subreddit: '',
+    subreddit: 'reactjs',
     data: [],
 }
