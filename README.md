@@ -1,14 +1,11 @@
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# My Notes
 
-Endpoints:
-- https://www.reddit.com/r/sales.json
-- paginate: https://www.reddit.com/r/sales.json?limit=24&after=t3_affmd1
+# Notes for Reviewer(s):
 
+CRA = `create-react-app`
 
-# Notes for Reviewer(s)
-- Would like to enforce coverage requirements to support team-wide TDD.
 - `npm test-cover` runs tests with coverage. Best to keep `npm test` because `console.log` is squelched when using
 coverage, and coverage also runs slower than standard tests.
 - `"babel": {` section of package.json is needed for styled-jsx to play nice with jest.
@@ -17,13 +14,19 @@ coverage, and coverage also runs slower than standard tests.
 - All tests were done in one file because the project is minimal and short-term
 
 
-## Additions Over Default CRA
+## Modules I Installed After `create-react-app`:
+- redux
 - react-redux
 - redux-logic
 - axios
+- react-router-dom
+- styled-jsx
+- immutability-helper
+- customize-cra
+- react-app-rewired
 
 
-## Available Scripts
+## Notes Leftover From `create-react-app`:
 
 In the project directory, you can run:
 
