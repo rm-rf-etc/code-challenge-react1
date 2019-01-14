@@ -1,5 +1,5 @@
 
 const endpoints = {
-    root: 'https://www.reddit.com/r/sales/top.json'
+    root: 'https://www.reddit.com/r/reactjs.json?limit=24'
 }
 export default endpoints

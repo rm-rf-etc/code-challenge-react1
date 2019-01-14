@@ -1,9 +1,10 @@
 
-export const dataPreprocess = (_json) => {
+export const dataPreprocess = (response) => {
 
     let data = []
     try {
-        data = _json.data.children
+        const payload = response.data
+        data = payload.data.children
     }
     catch (err) {
         throw new Error('invalid data received')

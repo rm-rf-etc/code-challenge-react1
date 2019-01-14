@@ -35,12 +35,13 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "@/(.*)$": "<rootDir>/src/$1",
-      "actions/(.*)$": "<rootDir>/src/actions/$1",
-      "logic/(.*)$": "<rootDir>/src/logic/$1",
-      "constants/(.*)$": "<rootDir>/src/constants/$1",
-      "endpoints/(.*)$": "<rootDir>/src/endpoints/$1",
-      "reducers/(.*)$": "<rootDir>/src/reducers/$1"
+      "@actions/(.*)$": "<rootDir>/src/actions/$1",
+      "@logic/(.*)$": "<rootDir>/src/logic/$1",
+      "@constants/(.*)$": "<rootDir>/src/constants/$1",
+      "@endpoints/(.*)$": "<rootDir>/src/endpoints/$1",
+      "@helpers/(.*)$": "<rootDir>/src/helpers/$1",
+      "@fixtures/(.*)$": "<rootDir>/src/fixtures/$1",
+      "@reducers/(.*)$": "<rootDir>/src/reducers/$1"
     }
   },
   "babel": {

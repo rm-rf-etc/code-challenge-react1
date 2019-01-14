@@ -1,11 +1,12 @@
 import { createLogic } from 'redux-logic'
-import endpoints from 'endpoints/'
+import endpoints from '@endpoints/'
 import {
     FIRST_FETCH,
     CANCEL_FIRST_FETCH,
     loadSuccess,
     loadFailure,
-} from 'actions/'
+} from '@actions/'
+import { dataPreprocess } from '@helpers/'
 
 export default createLogic({
     type: FIRST_FETCH,
@@ -15,7 +16,8 @@ export default createLogic({
         return httpClient
         .get(endpoints.root)
         .then((resp) => {
-            dispatch(loadSuccess(resp.data))
+            const data = dataPreprocess(resp)
+            dispatch(loadSuccess(data))
             done()
         })
         .catch((err) => {

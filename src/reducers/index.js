@@ -2,8 +2,8 @@ import {
     FIRST_FETCH,
     CHANGE_SUBREDDIT,
     LOAD_SUCCESS,
-} from 'actions/'
-import initialState from 'constants/initial-state'
+} from '@actions/'
+import initialState from '@constants/initial-state'
 import update from 'immutability-helper'
 
 

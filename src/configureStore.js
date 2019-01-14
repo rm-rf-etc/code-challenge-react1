@@ -5,9 +5,9 @@
 import axios from 'axios'
 import { compose, createStore, applyMiddleware } from 'redux'
 import { createLogicMiddleware } from 'redux-logic'
-import rootReducer  from 'reducers'
-import logic from 'logic'
-import initialState from 'constants/initial-state'
+import rootReducer from '@reducers/'
+import logic from '@logic/'
+import initialState from '@constants/initial-state'
 
 const logicDeps = {
 	httpClient: axios,
