@@ -12,6 +12,7 @@ import initialState from './constants/initial-state'
 import endpoints from './endpoints'
 import rootReducer from './reducers'
 import { dataPreprocess } from './helpers'
+import salesJSON from './fixtures/sales.json'
 
 
 describe('the app', () => {
@@ -65,7 +66,7 @@ describe('reducers', () => {
     })
     it('preprocesses payload data', () => {
 
-        const data = dataPreprocess({})
+        const data = dataPreprocess(salesJSON)
         const action = loadSuccess(data)
 
         expect(action.data.length).toBe(25)
