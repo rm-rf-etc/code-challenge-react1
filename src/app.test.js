@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom'
 import App from './app'
 import logic from './logic'
 import {
-    FIRST_FETCH,
-    LOAD_SUCCESS,
-    changeSubreddit,
+    firstFetch,
     loadSuccess,
+    loadFailure,
+    changeSubreddit,
+    cancelFirstFetch,
 } from './actions'
 import initialState from './constants/initial-state'
 import endpoints from './endpoints'
@@ -37,7 +38,7 @@ describe('data fetching', () => {
     it('makes get request to endpoint', async () => {
 
         const logicDeps = {
-            action: { type: FIRST_FETCH },
+            action: firstFetch(),
             getState: () => initialState,
             httpClient: axios,
         }
@@ -47,12 +48,18 @@ describe('data fetching', () => {
         await logic.process(logicDeps, _dispatch, _done)
 
         expect(axios.get).toBeCalledWith(endpoints.root)
-        expect(_dispatch).toBeCalledWith({ type: LOAD_SUCCESS, data: {} })
+        expect(_dispatch).toBeCalledWith(loadSuccess({}))
         expect(_done.mock.calls.length).toBe(1)
     })
 })
-describe.skip('actions', () => {
-    it('', () => {
+describe('action creators', () => {
+    it('have correct type', () => {
+        // type here is string to catch condition where type is undefined
+        expect(firstFetch().type).toBe('FIRST_FETCH')
+        expect(cancelFirstFetch().type).toBe('CANCEL_FIRST_FETCH')
+        expect(loadSuccess({}).type).toBe('LOAD_SUCCESS')
+        expect(loadFailure('invalid data').type).toBe('LOAD_FAILURE')
+        expect(changeSubreddit('sales').type).toBe('CHANGE_SUBREDDIT')
     })
 })
 describe('root reducer', () => {

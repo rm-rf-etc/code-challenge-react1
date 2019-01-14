@@ -1,9 +1,14 @@
 
+/* Do not use action types in tests */
+/* Use action creators instead */
 export const FIRST_FETCH = 'FIRST_FETCH'
 export const CANCEL_FIRST_FETCH = 'CANCEL_FIRST_FETCH'
 export const LOAD_SUCCESS = 'LOAD_SUCCESS'
 export const LOAD_FAILURE = 'LOAD_FAILURE'
 export const CHANGE_SUBREDDIT = 'CHANGE_SUBREDDIT'
+/* Do not use action types in tests */
+/* Use action creators instead */
+
 
 export const firstFetch = () => ({
     type: FIRST_FETCH,
