@@ -71,4 +71,12 @@ describe('reducers', () => {
 
         expect(action.data.length).toBe(25)
     })
+    it('updates state with new results from payload', () => {
+
+        const data = dataPreprocess(salesJSON)
+        const action = loadSuccess(data)
+        const newState = rootReducer(initialState, action)
+
+        expect(newState.data.length).toBe(25)
+    })
 })
