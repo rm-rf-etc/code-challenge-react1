@@ -1,15 +1,10 @@
 import React from 'react'
 import Header from '@components/Header'
-import Home from '@components/Home'
+import HomeView from '@components/Home'
+import ThreadView from '@components/Thread'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
-const Thread = (props) => (
-	<div>
-		<h1>Thread</h1>
-		<pre>{JSON.stringify(props, null, '\t')}</pre>
-	</div>
-)
 const Notfound = () => (
 	<div>
 		<h1>Page Not Found</h1>
@@ -20,15 +15,15 @@ const App = () => (
 	<div className="app-root">
 		<style jsx>{`
 			.app-root {
-				text-align: center;
+				text-align: left;
 				background-color: #282c34;
 			}`}
 		</style>
 		<Header />
 		<BrowserRouter>
 			<Switch>
-				<Route exact path="/" component={Home} />
-				<Route exact path="/thread/:id" component={Thread} />
+				<Route exact path="/" component={HomeView} />
+				<Route exact path="/thread/:threadId" component={ThreadView} />
 				<Route component={Notfound} />
 			</Switch>
 		</BrowserRouter>

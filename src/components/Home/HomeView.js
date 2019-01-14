@@ -20,7 +20,7 @@ const Home = ({ subreddit, data }) => (
         <ul id="threads">
             {data.map(({ data }) => (
                 <li>
-                    <Link className="link" to={`/thread/${data.name}`}>
+                    <Link className="link" to={`/thread/${data.id}`}>
                         {data.title}
                     </Link>
                 </li>

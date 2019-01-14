@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
 import { mapStateToProps } from './connectors'
-import Home from './Home'
+import HomeView from './HomeView'
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(HomeView)

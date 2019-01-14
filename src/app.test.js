@@ -1,5 +1,9 @@
 import React from 'react'
+import { compose, createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { createLogicMiddleware } from 'redux-logic'
 import ReactDOM from 'react-dom'
+
 import App from './app'
 import logic from './logic/'
 import {
@@ -15,9 +19,6 @@ import rootReducer from './reducers/'
 import { dataPreprocess } from './helpers/'
 import salesJSON from './fixtures/sales.json'
 import configureStore from './configureStore'
-import { compose, createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import { createLogicMiddleware } from 'redux-logic'
 
 
 const exampleResponse = {
@@ -37,7 +38,7 @@ const killFakeAxios = () => {
 	global.axios = undefined
 }
 
-describe.only('the app', () => {
+describe('the app', () => {
 	it('renders without crashing', () => {
 
 		const div = document.createElement('div')

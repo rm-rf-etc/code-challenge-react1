@@ -14,6 +14,9 @@ const myLink = (
 export default () => (
     <header className="app-root-header">
         <style jsx>{`
+            #header-text {
+                margin-left: 20px;
+            }
             .app-root-logo {
                 position: fixed;
                 top: 0;
@@ -24,7 +27,6 @@ export default () => (
             .app-root-header {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 font-size: calc(10px + 1vmin);
                 color: white;
             }
@@ -40,7 +42,7 @@ export default () => (
                 }
             }`}
         </style>
-        <p>RedditLite: The Subreddit viewer for React fans. {myLink}.</p>
+        <p id="header-text">RedditLite: The Subreddit viewer for React fans. {myLink}.</p>
         <img src={logo} className="app-root-logo" alt="logo" />
     </header>
 )
