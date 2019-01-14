@@ -6,10 +6,12 @@ import {
     FIRST_FETCH,
     LOAD_SUCCESS,
     changeSubreddit,
+    loadSuccess,
 } from './actions'
 import initialState from './constants/initial-state'
 import endpoints from './endpoints'
 import rootReducer from './reducers'
+import { dataPreprocess } from './helpers'
 
 
 describe('the app', () => {
@@ -60,5 +62,12 @@ describe('reducers', () => {
         expect(Array.isArray(newState.data)).toBe(true)
         expect(newState.data.length).toBe(0)
         expect(newState.subreddit).toBe('sales')
+    })
+    it('preprocesses payload data', () => {
+
+        const data = dataPreprocess({})
+        const action = loadSuccess(data)
+
+        expect(action.data.length).toBe(25)
     })
 })

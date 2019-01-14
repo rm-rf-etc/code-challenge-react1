@@ -3,8 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # My Notes
 
 Endpoints:
-- https://www.reddit.com/r/sales/top.json
-- paginate: https://www.reddit.com/r/sales/top.json?limit=2&after=t3_aeltc6
+- https://www.reddit.com/r/sales.json
+- paginate: https://www.reddit.com/r/sales.json?limit=24&after=t3_affmd1
 
 
 # Notes for Reviewer(s)

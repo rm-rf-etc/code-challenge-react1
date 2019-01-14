@@ -20,6 +20,7 @@ module.exports = {
             logic: absPath('./src/logic'),
             actions: absPath('./src/actions'),
             reducers: absPath('./src/reducers'),
+            helpers: absPath('./src/helpers'),
         }
 
         return newConfig
