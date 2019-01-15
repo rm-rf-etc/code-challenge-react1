@@ -16,5 +16,5 @@ export const dataPreprocess = (response) => {
 }
 
 export const subredditFromPathString = (string) => (
-	string.replace(/^\//, '').split('/')[1]
+	string.replace(/^\//, '').split('/')[2]
 )

@@ -17,7 +17,7 @@ const SRIndex = ({ subreddit, data = [] }) => (
         <ul id="threads">
             {data.map(({ data }, id) => (
                 <li key={id}>
-                    <Link to={`/subreddit/${subreddit}/thread/${data.id}`}>
+                    <Link to={`/code-challenge-react1/subreddit/${subreddit}/thread/${data.id}`}>
                         {data.title}
                     </Link>
                 </li>

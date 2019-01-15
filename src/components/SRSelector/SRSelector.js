@@ -21,7 +21,7 @@ const SRSelector = withRouter(({
 			defaultValue={match.params.subreddit}
 			onChange={({target}) => setSubreddit(target.value)}
 		/>
-		<Link to={`/subreddit/${subreddit}`}>
+		<Link to={`/code-challenge-react1/subreddit/${subreddit}`}>
 			<button>Load</button>
 		</Link>
 		<button onClick={goBackward}>&larr;</button>

@@ -27,17 +27,17 @@ const App = () => (
 			<Switch>
 				<Route
 					exact
-					path="/"
+					path="/code-challenge-react1/"
 					component={LandingPage}
 				/>
 				<Route
 					exact
-					path="/subreddit/:subreddit"
+					path="/code-challenge-react1/subreddit/:subreddit"
 					component={QueryParamHOC(['subreddit'], SRIndex)}
 				/>
 				<Route
 					exact
-					path="/subreddit/:subreddit/thread/:threadId"
+					path="/code-challenge-react1/subreddit/:subreddit/thread/:threadId"
 					component={QueryParamHOC(['subreddit', 'threadId'], ThreadView)}
 				/>
 				<Route

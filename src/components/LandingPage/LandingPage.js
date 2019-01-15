@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default (props) => (
 	<div>
 		<Link
-			to={`/subreddit/${initialState.subreddit}`}
+			to={`/code-challenge-react1/subreddit/${initialState.subreddit}`}
 		>
 			Click here to get started
 		</Link>
