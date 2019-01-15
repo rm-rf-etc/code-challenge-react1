@@ -1,6 +1,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+View it here: [https://rm-rf-etc.github.io/code-challenge-react1/](https://rm-rf-etc.github.io/code-challenge-react1/)
 
 # Notes for Reviewer(s):
 
@@ -16,6 +17,7 @@ coverage, and coverage also runs slower than standard tests.
 a strange way, the level of effort for implementing this is higher than anticipated.
 - Navigation is sometimes buggy. Some reddit API requests come back denied (I see this with /mademesmile at times)
 which can cause unexpected behavior.
+- In hindsight, pagination should have been implemented as part of the routing.
 
 
 ## Modules I Installed After `create-react-app`:
