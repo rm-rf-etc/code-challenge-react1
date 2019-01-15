@@ -1,6 +1,5 @@
 
 export default {
-    subreddit: 'reactjs',
-    after: null,
+	after: null, // param for pagination
     data: [],
 }

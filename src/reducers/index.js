@@ -1,10 +1,8 @@
 import {
-    FETCH_ATTEMPT,
-    CHANGE_SUBREDDIT,
     LOAD_SUCCESS,
     LOAD_FAILURE,
-} from '@actions/'
-import initialState from '@constants/initial-state'
+} from 'src/actions'
+import initialState from 'src/constants/initial-state'
 import update from 'immutability-helper'
 
 
@@ -13,14 +11,6 @@ export default (state = initialState, action = {}) => {
     // alternative to switch statement
     const fn = ({
 
-        [FETCH_ATTEMPT]: () => (
-            state
-        ),
-        [CHANGE_SUBREDDIT]: () => (
-            update(state, {
-                subreddit: { $set: action.subreddit },
-            })
-        ),
         [LOAD_SUCCESS]: () => {
             const { data } = action
             return update(state, {

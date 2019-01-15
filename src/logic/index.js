@@ -1,31 +1,32 @@
-import { createLogic } from 'redux-logic'
-import endpoint from '@endpoints/'
+import {createLogic} from 'redux-logic'
+import endpoint from 'src/endpoints/'
 import {
-    FETCH_ATTEMPT,
-    CANCEL_FETCH,
-    loadSuccess,
-    loadFailure,
-} from '@actions/'
-import { dataPreprocess } from '@helpers/'
+	SET_SUBREDDIT,
+	CANCEL_FETCH,
+	loadSuccess,
+	loadFailure,
+} from 'src/actions/'
+import {dataPreprocess} from 'src/helpers/'
 
 export default createLogic({
-    type: FETCH_ATTEMPT,
-    cancelType: CANCEL_FETCH,
-    latest: true,
-    process: ({ httpClient, getState, action }, dispatch, done) => {
+	type: SET_SUBREDDIT,
+	cancelType: CANCEL_FETCH,
+	latest: true,
+	process: ({ httpClient, getState, action }, dispatch, done) => {
 
-        const { subreddit, after } = getState()
+		const { after } = getState()
+		const { subreddit } = action
 
-        return httpClient
-        .get(endpoint(subreddit, after))
-        .then((resp) => {
-            const data = dataPreprocess(resp)
-            dispatch(loadSuccess(data))
-            done()
-        })
-        .catch((err) => {
-            dispatch(loadFailure(err.message))
-            done()
-        })
-    }
+		return httpClient
+		.get(endpoint(subreddit, after))
+		.then((resp) => {
+			const data = dataPreprocess(resp)
+			dispatch(loadSuccess(data))
+			done()
+		})
+		.catch((err) => {
+			dispatch(loadFailure(err.message))
+			done()
+		})
+	}
 })

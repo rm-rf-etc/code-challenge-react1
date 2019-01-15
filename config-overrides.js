@@ -14,19 +14,12 @@ module.exports = {
     	)(config)
 
         /*
-            For these to work in Jest, be sure that package.json options
-            under "jest" are kept matching.
+        For these to work in Jest, be sure that package.json options
+        under "jest" are kept matching.
         */
         newConfig.resolve.alias = {
             ...newConfig.resolve.alias,
-            "@constants": absPath('./src/constants'),
-            "@components": absPath('./src/components'),
-            "@endpoints": absPath('./src/endpoints'),
-            "@logic": absPath('./src/logic'),
-            "@actions": absPath('./src/actions'),
-            "@fixtures": absPath('./src/fixtures'),
-            "@reducers": absPath('./src/reducers'),
-            "@helpers": absPath('./src/helpers'),
+            "src": absPath('./src'),
         }
 
         return newConfig

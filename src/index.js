@@ -1,21 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import configureStore from './configureStore'
-import { fetchAttempt } from '@actions/'
+import {Provider} from 'react-redux'
+import {setSubreddit} from 'src/actions'
+import getStore from 'src/store'
+import {subredditFromPathString} from 'src/helpers'
 
-import './index.css'
-import App from './app'
-import * as serviceWorker from './serviceWorker'
+import 'src/index.css'
+import App from 'src/app'
+import * as serviceWorker from 'src/serviceWorker'
 
-const store = configureStore()
-store.dispatch(fetchAttempt())
+const store = getStore()
+const subreddit = subredditFromPathString(window.location.pathname)
+store.dispatch(setSubreddit(subreddit))
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change

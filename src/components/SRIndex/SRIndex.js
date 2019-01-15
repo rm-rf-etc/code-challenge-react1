@@ -1,8 +1,8 @@
 import React from 'react'
-import SRSelector from '@components/SubredditSelector'
-import { Link } from 'react-router-dom'
+import SRSelector from 'src/components/SRSelector'
+import {Link} from 'react-router-dom'
 
-const Home = ({ subreddit, data }) => (
+const SRIndex = ({ subreddit, data = [] }) => (
     <div id="home">
         <style jsx>{`
             #home {
@@ -11,16 +11,13 @@ const Home = ({ subreddit, data }) => (
             #threads {
                 width: 100%;
                 text-align: left;
-            }
-            .link {
-                color: white;
-            }
-        `}</style>
+            }`}
+        </style>
         <SRSelector />
         <ul id="threads">
-            {data.map(({ data }) => (
-                <li>
-                    <Link className="link" to={`/thread/${data.id}`}>
+            {data.map(({ data }, id) => (
+                <li key={id}>
+                    <Link to={`/subreddit/${subreddit}/thread/${data.id}`}>
                         {data.title}
                     </Link>
                 </li>
@@ -29,4 +26,4 @@ const Home = ({ subreddit, data }) => (
     </div>
 )
 
-export default Home
+export default SRIndex

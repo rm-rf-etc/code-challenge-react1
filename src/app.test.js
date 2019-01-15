@@ -1,24 +1,22 @@
 import React from 'react'
-import { compose, createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import { createLogicMiddleware } from 'redux-logic'
+import {compose, createStore, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux'
+import {createLogicMiddleware} from 'redux-logic'
 import ReactDOM from 'react-dom'
 
 import App from './app'
 import logic from './logic/'
 import {
-	fetchAttempt,
+	setSubreddit,
 	loadSuccess,
 	loadFailure,
-	changeSubreddit,
 	cancelFetch,
 } from './actions/'
 import initialState from './constants/initial-state'
 import endpoint from './endpoints/'
 import rootReducer from './reducers/'
-import { dataPreprocess } from './helpers/'
+import {dataPreprocess} from './helpers/'
 import salesJSON from './fixtures/sales.json'
-import configureStore from './configureStore'
 
 
 const exampleResponse = {
@@ -64,7 +62,7 @@ describe('data fetching', () => {
 	it('makes get request to endpoint', async () => {
 
 		const logicDeps = {
-			action: fetchAttempt(),
+			action: setSubreddit(),
 			httpClient: axios,
 			getState: () => initialState,
 		}
@@ -82,22 +80,18 @@ describe('data fetching', () => {
 describe('action creators', () => {
 	it('have correct type', () => {
 		// type here is string to catch condition where type is undefined
-		expect(fetchAttempt().type).toBe('FETCH_ATTEMPT')
 		expect(cancelFetch().type).toBe('CANCEL_FETCH')
 		expect(loadSuccess({}).type).toBe('LOAD_SUCCESS')
 		expect(loadFailure('invalid data').type).toBe('LOAD_FAILURE')
-		expect(changeSubreddit('sales').type).toBe('CHANGE_SUBREDDIT')
+		expect(setSubreddit('sales').type).toBe('SET_SUBREDDIT')
 	})
 })
 describe('root reducer', () => {
 	it('changes to new subreddit', () => {
 
-		const action = changeSubreddit('sales')
-		expect(action.type).toBe('CHANGE_SUBREDDIT')
+		const action = setSubreddit('sales')
+		expect(action.type).toBe('SET_SUBREDDIT')
 		expect(action.subreddit).toBe('sales')
-
-		const newState = rootReducer(initialState, action)
-		expect(newState.subreddit).toBe('sales')
 	})
 	it('preprocesses payload data', () => {
 
@@ -116,7 +110,7 @@ describe('root reducer', () => {
 	})
 })
 describe('logic end-to-end', () => {
-	it('calls httpClient when fetchAttempt() is dispatched', async () => {
+	it('calls httpClient when setSubreddit() is dispatched', async () => {
 
 		const get = jest.fn(() => (
 			new Promise((resolve) => resolve(exampleResponse))
@@ -140,7 +134,7 @@ describe('logic end-to-end', () => {
 			enhancers,
 		)
 
-		await store.dispatch(fetchAttempt())
+		await store.dispatch(setSubreddit())
 
 		expect(get).toBeCalledWith(endpoint(initialState.subreddit))
 	})

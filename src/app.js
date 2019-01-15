@@ -1,8 +1,11 @@
 import React from 'react'
-import Header from '@components/Header'
-import HomeView from '@components/Home'
-import ThreadView from '@components/Thread'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Header from 'src/components/Header'
+import SRIndex from 'src/components/SRIndex'
+import ThreadView from 'src/components/ThreadView'
+import LandingPage from 'src/components/LandingPage'
+import {Router, Route, Switch} from 'react-router-dom'
+import history from 'src/logic/router-events'
+import {QueryParamHOC} from 'src/components/HOC'
 
 
 const Notfound = () => (
@@ -20,13 +23,28 @@ const App = () => (
 			}`}
 		</style>
 		<Header />
-		<BrowserRouter>
+		<Router history={history}>
 			<Switch>
-				<Route exact path="/" component={HomeView} />
-				<Route exact path="/thread/:threadId" component={ThreadView} />
-				<Route component={Notfound} />
+				<Route
+					exact
+					path="/"
+					component={LandingPage}
+				/>
+				<Route
+					exact
+					path="/subreddit/:subreddit"
+					component={QueryParamHOC(['subreddit'], SRIndex)}
+				/>
+				<Route
+					exact
+					path="/subreddit/:subreddit/thread/:threadId"
+					component={QueryParamHOC(['subreddit', 'threadId'], ThreadView)}
+				/>
+				<Route
+					component={Notfound}
+				/>
 			</Switch>
-		</BrowserRouter>
+		</Router>
 	</div>
 )
 

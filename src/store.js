@@ -3,11 +3,11 @@
 // https://github.com/jeffbski/redux-logic/blob/master/examples/search-async-fetch/src/configureStore.js
 
 import axios from 'axios'
-import { compose, createStore, applyMiddleware } from 'redux'
-import { createLogicMiddleware } from 'redux-logic'
-import rootReducer from '@reducers/'
-import logic from '@logic/'
-import initialState from '@constants/initial-state'
+import {compose, createStore, applyMiddleware} from 'redux'
+import {createLogicMiddleware} from 'redux-logic'
+import rootReducer from 'src/reducers/'
+import logic from 'src/logic/'
+import initialState from 'src/constants/initial-state'
 
 const logicDeps = {
 	httpClient: axios,
@@ -22,8 +22,9 @@ const middleware = applyMiddleware(
 const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const enhancers = _compose(middleware)
 
-export default () => createStore(
+const store = createStore(
 	rootReducer,
 	initialState,
 	enhancers,
 )
+export default () => store

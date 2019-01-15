@@ -10,6 +10,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
+    "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-logic": "^2.0.3",
     "styled-jsx": "^3.1.3"
@@ -36,14 +37,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "@actions/(.*)$": "<rootDir>/src/actions/$1",
-      "@constants/(.*)$": "<rootDir>/src/constants/$1",
-      "@components/(.*)$": "<rootDir>/src/components/$1",
-      "@logic/(.*)$": "<rootDir>/src/logic/$1",
-      "@endpoints/(.*)$": "<rootDir>/src/endpoints/$1",
-      "@helpers/(.*)$": "<rootDir>/src/helpers/$1",
-      "@fixtures/(.*)$": "<rootDir>/src/fixtures/$1",
-      "@reducers/(.*)$": "<rootDir>/src/reducers/$1"
+      "src/(.*)$": "<rootDir>/src/$1"
     }
   },
   "babel": {

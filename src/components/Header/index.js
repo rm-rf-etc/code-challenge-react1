@@ -3,10 +3,10 @@ import logo from './logo.svg'
 
 const myLink = (
     <a
-        className="app-root-link"
         href="https://robertchristian.me"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+    >
         Made by Robert Christian
     </a>
 )
@@ -29,9 +29,6 @@ export default () => (
                 flex-direction: column;
                 font-size: calc(10px + 1vmin);
                 color: white;
-            }
-            .app-root-link {
-                color: #61dafb;
             }
             @keyframes app-root-logo-spin {
                 from {
