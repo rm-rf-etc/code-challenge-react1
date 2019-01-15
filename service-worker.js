@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/codechallenge-react1/precache-manifest.077c79c7298474d7a3fe9cbc03552318.js"
+  "/code-challenge-react1/precache-manifest.082be3f2075fc45160446287dd1cf77e.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/codechallenge-react1/index.html", {
+workbox.routing.registerNavigationRoute("/code-challenge-react1/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
