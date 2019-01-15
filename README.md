@@ -10,14 +10,19 @@ CRA = `create-react-app`
 coverage, and coverage also runs slower than standard tests.
 - `"babel": {` section of package.json is needed for styled-jsx to play nice with jest.
 - Import path aliases are found in `config-overrides.js`, these are webpack options we set for CRA using `customize-cra`
-- All work was done on master, no attempt was made to organize into branches as would normally be done in a real project
 - All tests were done in one file because the project is minimal and short-term
+- Tests were not written for routing logic as I was running short on time
+- I was not able to get around to implementing the page auto-refresh feature. Because the reddit API does pagination in
+a strange way, the level of effort for implementing this is higher than anticipated.
+- Navigation is sometimes buggy. Some reddit API requests come back denied (I see this with /mademesmile at times)
+which can cause unexpected behavior.
 
 
 ## Modules I Installed After `create-react-app`:
 - redux
 - react-redux
 - redux-logic
+- recompose
 - axios
 - react-router-dom
 - styled-jsx
