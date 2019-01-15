@@ -1,5 +1,9 @@
-import {changeSubreddit, fetchAttempt} from 'src/actions'
+import {goForward, goBackward} from 'src/actions'
 
 export const mapDispatchToProps = (dispatch) => ({
-    fetch: () => dispatch(fetchAttempt()),
+	goForward: () => dispatch(goForward()),
+	goBackward: () => dispatch(goBackward()),
+})
+export const mapStateToProps = ({position}) => ({
+    position,
 })

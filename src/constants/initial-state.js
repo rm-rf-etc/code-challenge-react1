@@ -1,5 +1,8 @@
 
 export default {
-	after: null, // param for pagination
+	subreddit: 'reactjs',
+	message: null,
+	markers: [''],
+	position: 0, // param for pagination
     data: [],
 }

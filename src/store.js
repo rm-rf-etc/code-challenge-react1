@@ -6,14 +6,14 @@ import axios from 'axios'
 import {compose, createStore, applyMiddleware} from 'redux'
 import {createLogicMiddleware} from 'redux-logic'
 import rootReducer from 'src/reducers/'
-import logic from 'src/logic/'
+import logicArr from 'src/logic/'
 import initialState from 'src/constants/initial-state'
 
 const logicDeps = {
 	httpClient: axios,
 }
 const logicMiddleware = createLogicMiddleware(
-	[logic],
+	logicArr,
 	logicDeps,
 )
 const middleware = applyMiddleware(

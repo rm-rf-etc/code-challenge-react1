@@ -15,8 +15,8 @@ const ThreadView = ({ threadId, data = [] }) => {
 				#thread-viewer {
 					text-align: left;
 					margin-left: 20px;
-				}
-			`}</style>
+				}`}
+			</style>
 			<h2>Title:<br />{thread.title}</h2>
 			<h3>Body:</h3>
 			<pre>{thread.selftext}</pre>

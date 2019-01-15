@@ -2,27 +2,24 @@ import createHistory from 'history/createBrowserHistory'
 import getStore from 'src/store'
 import {setSubreddit} from 'src/actions'
 import {subredditFromPathString} from 'src/helpers'
+import initialState from 'src/constants/initial-state'
 
 const history = createHistory()
 const store = getStore()
 
-// Get current route pathname
-let oldPathname = history.location
+let lastSubreddit = initialState.subreddit
 
 // Redux actions can dispatch upon route changes from here
 history.listen((location, action) => {
 
-    const newPathname = location.pathname
+	const curSubreddit = subredditFromPathString(location.pathname)
+	// console.log(action, lastSubreddit, curSubreddit)
 
-    if (action === 'PUSH' && newPathname !== oldPathname) {
-        oldPathname = newPathname
+	if (['POP','PUSH'].includes(action) && curSubreddit !== lastSubreddit) {
+		store.dispatch(setSubreddit(curSubreddit))
+	}
 
-        // extract 2nd segment from route pathname
-        const subreddit = subredditFromPathString(newPathname)
-
-        // gotta dispatch setSubreddit() action to trigger data loading
-        store.dispatch(setSubreddit(subreddit))
-    }
+	lastSubreddit = curSubreddit
 })
 
 export default history

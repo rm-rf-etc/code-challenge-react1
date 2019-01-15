@@ -1,7 +1,14 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
 
-const SRSelector = withRouter(({ match, history, subreddit, setSubreddit }) => (
+const SRSelector = withRouter(({
+	match,
+	subreddit,
+	setSubreddit,
+	position,
+	goBackward,
+	goForward,
+}) => (
 	<div>
 		<style jsx>{`
 			input {
@@ -12,11 +19,14 @@ const SRSelector = withRouter(({ match, history, subreddit, setSubreddit }) => (
 			id="picker"
 			type="text"
 			defaultValue={match.params.subreddit}
-			onChange={({ target }) => setSubreddit(target.value)}
+			onChange={({target}) => setSubreddit(target.value)}
 		/>
 		<Link to={`/subreddit/${subreddit}`}>
 			<button>Load</button>
 		</Link>
+		<button onClick={goBackward}>&larr;</button>
+		<span>{position}</span>
+		<button onClick={goForward}>&rarr;</button>
 	</div>
 ))
 

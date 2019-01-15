@@ -5,7 +5,7 @@ import {createLogicMiddleware} from 'redux-logic'
 import ReactDOM from 'react-dom'
 
 import App from './app'
-import logic from './logic/'
+import logicArray from './logic/'
 import {
 	setSubreddit,
 	loadSuccess,
@@ -72,7 +72,12 @@ describe('data fetching', () => {
 		await logic.process(logicDeps, _dispatch, _done)
 
 		expect(axios.get).toBeCalledWith(endpoint(initialState.subreddit))
-		expect(_dispatch).toBeCalledWith(loadSuccess(exampleResponse.data.data.children))
+		const action = loadSuccess(
+			exampleResponse.data.data.children,
+			[exampleResponse.data.data.after],
+		)
+
+		expect(_dispatch).toBeCalledWith(action)
 		expect(_done.mock.calls.length).toBe(1)
 	})
 	afterAll(killFakeAxios)
@@ -95,15 +100,15 @@ describe('root reducer', () => {
 	})
 	it('preprocesses payload data', () => {
 
-		const data = dataPreprocess(exampleResponse)
-		const action = loadSuccess(data)
+		const {data, markerNext} = dataPreprocess(exampleResponse)
+		const action = loadSuccess(initialState.subreddit, data, 0, [''])
 
 		expect(action.data.length).toBe(25)
 	})
 	it('updates state with new results from payload', () => {
 
-		const data = dataPreprocess(exampleResponse)
-		const action = loadSuccess(data)
+		const {data, markerNext} = dataPreprocess(exampleResponse)
+		const action = loadSuccess(initialState.subreddit, data, 0, [''])
 		const newState = rootReducer(initialState, action)
 
 		expect(newState.data.length).toBe(25)
@@ -120,7 +125,7 @@ describe('logic end-to-end', () => {
 			getState: () => initialState,
 		}
 		const logicMiddleware = createLogicMiddleware(
-			[logic],
+			logicArray,
 			logicDeps,
 		)
 		const middleware = applyMiddleware(
